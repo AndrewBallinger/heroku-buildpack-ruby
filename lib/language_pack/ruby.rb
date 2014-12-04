@@ -89,6 +89,7 @@ class LanguagePack::Ruby < LanguagePack::Base
       install_jvm
       setup_language_pack_environment
       setup_profiled
+      setup_shadow
       allow_git do
         install_bundler_in_app
         build_bundler
@@ -102,6 +103,10 @@ class LanguagePack::Ruby < LanguagePack::Base
   end
 
 private
+
+  def setup_shadow
+    FileUtils.cp(".git", ".shadow")
+  end
 
   # the base PATH environment variable to be used
   # @return [String] the resulting PATH
