@@ -89,7 +89,6 @@ class LanguagePack::Ruby < LanguagePack::Base
       install_jvm
       setup_language_pack_environment
       setup_profiled
-      setup_shadow
       allow_git do
         install_bundler_in_app
         build_bundler
@@ -97,6 +96,7 @@ class LanguagePack::Ruby < LanguagePack::Base
         create_database_yml
         install_binaries
         run_assets_precompile_rake_task
+        setup_shadow
       end
       super
     end
