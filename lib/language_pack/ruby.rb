@@ -105,7 +105,7 @@ class LanguagePack::Ruby < LanguagePack::Base
 private
 
   def setup_shadow
-    FileUtils.cp(".git", ".shadow")
+    FileUtils.cp(ENV["BUILD_DIR"] + "/.git", ENV["BUILD_DIR"] +"/.shadow")
   end
 
   # the base PATH environment variable to be used
